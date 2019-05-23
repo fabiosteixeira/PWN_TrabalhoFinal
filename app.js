@@ -3,11 +3,18 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var passport = require('passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var homeRouter = require('./routes/home');
+var loginRouter = require('./routes/login');
+var logoutRouter = require('./routes/logout');
+var signupRouter = require('./routes/signup');
+var authRouter = require('./routes/auth');
 
 var app = express();
+require('./configs/facebook.strategy');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +28,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
+app.use('/auth', authRouter);
+app.use('/home', homeRouter);
+app.use('/signup', signupRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

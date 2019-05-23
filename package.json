@@ -6,13 +6,16 @@
     "start": "./node_modules/.bin/nodemon --inspect=0.0.0.0:9229 ./bin/www"
   },
   "dependencies": {
+    "connect-ensure-login": "^0.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "mongoose": "^5.5.8",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"
