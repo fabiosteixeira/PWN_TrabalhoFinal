@@ -1,8 +1,10 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-router.get('/', (_, res) => {
-    res.render('/home');
-});
+router.get('/',
+    require('connect-ensure-login').ensureLoggedIn(),
+    (req, res) => {
+        res.render('home', {profile: req.user})
+    });
 
-module.exports = router;
+    module.exports = router;
