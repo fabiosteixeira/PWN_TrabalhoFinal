@@ -3,29 +3,72 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta charset="utf-8" />
     <meta name="Viewport" content="witdth=device-width" />
-    <meta name="description" content="Página sobre Hérois Marvel" />
-    <meta name="keywords" content="PWN,trabalho, final" />
-    <link rel="stylesheet" href="css/estilomovie.css">
-    <title>Super H&eacute;rois da Marvel</title>
+    <meta name="description" content="Página com hérois da Marvel" />
+    <meta name="keywords" content="NodeJS, bootstrap, PWN,Fábio Teixeira, Filipe Eduardo, LUiz Carlos" />
+    <title>Super H&eacute;rois Marvel</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
 </head>
 
 <body>
-    <ul class="nav nav-pills">
-        ...
-        <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                Dropdown <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                ...
-            </ul>
-        </li>
-        ...
-    </ul>
 
+    <div class="mx-auto text-center" style="width: 490px;">
+        <h1>Fazer Login no Site</h1>
+        <a href="/signup">
+            <h4>ou crie a sua conta</h4>
+        </a><br>
 
-</body>
+        <!--Formulario-->
+        <form class="needs-validation" novalidate>
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="validationServer02">E-mail</label>
+                    <input type="text" class="form-control" id="validationServer02" placeholder="E-mail" required>
+                    <div class="valid-feedback">
+                        Ok!</div>
+                    <div class="invalid-feedback">
+                        Preencher campo e-mail.
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationServer03">Senha</label>
+                    <input type="password" class="form-control" id="validationServer03" placeholder="Senha" required>
+                    <div class="valid-feedback">
+                        Ok!</div>
+                    <div class="invalid-feedback">
+                        Preencher campo senha.
+                    </div>
+                </div>
 
-</html>
+            </div>
+
+            <button class="btn btn-success btn-md-12 mb-3" type="submit">Fazer Login</button>
+        </form>
+        <br><br>
+        <form action="/auth/facebook">
+            <button type="submit" class="btn btn-outline-secondary btn-sm"><img src="imagens/facebook-icon-preview-1.png" alt="FACEBOOK">Fazer Login com Facebook</button>
+        </form>
+    </div>
+    <script src="./css/bootstrap.css"></script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+        })();
+    </script>
+</body></html>
