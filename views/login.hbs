@@ -1,31 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Página com hérois da Marvel">
+    <meta name="keywords" content="NodeJS, bootstrap, PWN,Fábio Teixeira, Filipe Eduardo, LUiz Carlos">
 
-<head>
-    <meta charset="UTF-8">
-    <meta charset="utf-8" />
-    <meta name="Viewport" content="witdth=device-width" />
-    <meta name="description" content="Página sobre Hérois Marvel" />
-    <meta name="keywords" content="PWN,trabalho, final" />
-    <link rel="stylesheet" href="css/estilomovie.css">
-    <title>Super H&eacute;rois da Marvel</title>
-</head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<body>
-    <ul class="nav nav-pills">
-        ...
-        <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                Dropdown <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                ...
-            </ul>
-        </li>
-        ...
-    </ul>
+    <title>{{title}}</title>
 
+    <link rel='stylesheet' href='/stylesheets/style.css' >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  </head>
+  <body>
+    {{{body}}}
+    <section class="mx-auto text-center">
+       <div class="section mx-auto text-center">
+        <h1>Fazer Login no Site</h1>
+        <a href="/signup">
+            <p>ou crie a sua conta</p>
+        </a><br>
 
-</body>
-
+        <!--Formulario-->
+        <form class="needs-validation" novalidate method="POST">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="validationServer02">E-mail</label>
+                    <input type="text" class="form-control" id="validationServer02" placeholder="E-mail" required>
+                    <div class="valid-feedback">
+                        Ok!</div>
+                    <div class="invalid-feedback">
+                        Preencher campo e-mail.
+                    </div>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label for="validationServer03">Senha</label>
+                    <input type="password" class="form-control" id="validationServer03" placeholder="Senha" required>
+                    <div class="valid-feedback">
+                        Ok!</div>
+                    <div class="invalid-feedback">
+                        Preencher campo senha.
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-success col-md-12 mb-3" type="submit">Fazer Login</button>
+        </form>
+        <br><br>
+        <form action="/auth/facebook">
+            <button type="submit" class="btn btn-outline-secondary btn-sm col-md-12 mb-3"><img src="imagens/facebook-icon-preview-1.png" alt="FACEBOOK">Fazer Login com Facebook</button>
+        </form>
+    </div><!--Fim div mx-auto text-center-->
+       
+    </section>
+    
+    <script src="./css/bootstrap.css"></script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+        })();
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../scripts/script.js"></script>
+  </body>
 </html>

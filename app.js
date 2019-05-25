@@ -6,8 +6,8 @@ var logger = require('morgan');
 var passport = require('passport');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var homeRouter = require('./routes/home');
+var inicioRouter = require('./routes/inicio');
+var profileRouter = require('./routes/profile');
 var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
 var signupRouter = require('./routes/signup');
@@ -26,12 +26,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Set passport configs
+app.use(require('express-session')({ secret: 'shhhh...', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/inicio', inicioRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/auth', authRouter);
-app.use('/home', homeRouter);
+app.use('/profile', profileRouter);
 app.use('/signup', signupRouter);
 
 // catch 404 and forward to error handler
