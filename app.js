@@ -6,7 +6,6 @@ var logger = require('morgan');
 var passport = require('passport');
 
 var indexRouter = require('./routes/index');
-var inicioRouter = require('./routes/inicio');
 var profileRouter = require('./routes/profile');
 var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
@@ -32,7 +31,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/inicio', inicioRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/auth', authRouter);
