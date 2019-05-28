@@ -1,14 +1,79 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("/imagens/avengers_background.jpg");
+  background-size: cover;
 }
 
 a {
   color: #00B7FF;
 }
 
+.navbar {
+  border-radius: 24px;
+  background-color: #d4d0d0 !important;
+  opacity: 0.8;
+}
+
+.btn {
+  border-radius: 24px;
+}
+
 .section{
   text-align: center;
   width: 430px;
   height: 237.78px;
+}
+
+.centerDiv
+	{
+		width: 60%;
+		height:50px;
+		margin: 0 auto;
+    margin-top: 130px;
+  }
+
+.centerDiv div:first-child {
+  font-family: "Cinzel", sans-serif;
+  font-size: 50px;
+  color: white;
+  text-shadow: 2px 2px 2px red;
+}
+  
+.centerInput {
+  background: #fff;
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid #dfe1e5;
+  box-shadow: none;
+  border-radius: 24px;
+  z-index: 3;
+  height: 44px;
+  margin: 0 auto;
+  width: 482px;
+  opacity: 0.8;
+}
+
+.searchInput {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: rgba(0,0,0,.87);
+  word-wrap: break-word;
+  outline: none;
+  display: flex;
+  flex: 100%;
+  -webkit-tap-highlight-color: transparent;
+  width: 400px;
+  height: 42px;
+  margin-left: 20px;
+  float: left;
+}
+
+.fab.fa-searchengin {
+  font-size: 35px;
+  color: red;
+  margin-top: 4px;
+  margin-left: 15px;
 }
