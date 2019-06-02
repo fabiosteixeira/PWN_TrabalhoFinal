@@ -4,16 +4,17 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var passport = require('passport');
+var app = require('marvel-api');
 
-var indexRouter = require('./routes/index');
-var profileRouter = require('./routes/profile');
-var loginRouter = require('./routes/login');
-var logoutRouter = require('./routes/logout');
-var signupRouter = require('./routes/signup');
+
+var indexRouter = require('./routes/index1');
 var authRouter = require('./routes/auth');
+var profileRouter = require('./routes/profile');
+var marvelRouter = require('./routes/marvel');
 
 var app = express();
 require('./configs/facebook.strategy');
+require('./configs/github.strategy');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,11 +32,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/login', loginRouter);
-app.use('/logout', logoutRouter);
 app.use('/auth', authRouter);
 app.use('/profile', profileRouter);
-app.use('/signup', signupRouter);
+app.use('/marvel', marvelRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

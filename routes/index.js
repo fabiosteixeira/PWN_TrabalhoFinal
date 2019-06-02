@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Super Hérois da Marvel' });
+  res.redirect('http://localhost:3000/marvel/busca/'); //redireciona para página de pesquisa 
 });
 
 module.exports = router;

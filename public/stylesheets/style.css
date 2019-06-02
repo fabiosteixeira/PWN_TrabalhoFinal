@@ -1,12 +1,17 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("/imagens/avengers_background.jpg");
+  background-image: url("/imagens/mesh_dark_background.jpg");
   background-size: cover;
 }
 
 a {
   color: #00B7FF;
+}
+
+.titulo{
+  font: 30px bold, italic;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .navbar {
@@ -76,4 +81,12 @@ a {
   color: red;
   margin-top: 4px;
   margin-left: 15px;
+}
+
+.container {
+  background: #e6ffe6;
+  float: none;
+  margin: 20px auto;
+  padding: 20px;
+  width: auto;
 }
