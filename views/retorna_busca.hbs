@@ -1,4 +1,4 @@
-<div class='col-lg-12'>     
+<div class="col-lg-12 noticia">     
     <br>{{name}}
     <br>{{paginaAtual}}
     <h2>Retorno de buscas</h2>        
@@ -12,10 +12,10 @@
         {{/each}}   
     <p>Página {{pagAtual}} de {{quantPag}} </p>
     {{#if pagAnt }}
-        <a href="{{pagAnt}}"> << Anterior </a>
+        <a class="btn btn-primary" href="{{pagAnt}}" role="button">Anterior</a>    
     {{/if}}
-    ||
+    
     {{#if proxPag }}
-        <a href="{{proxPag}}">Próxima >></a>
+        <a class="btn btn-primary" href="{{proxPag}}" role="button">Próxima</a> 
     {{/if}}
 </div> 
