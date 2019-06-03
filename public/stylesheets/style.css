@@ -111,17 +111,18 @@ a {
 .noticia {
   background: #e5e5e5;
   padding: 5px;
-  width: auto;
+  width: 500px;
   margin: 10px;
   float: left;
 }
-.imagem-galeria img {
-  border: 8px solid white;
-  box-shadow: 1px 1px 4px black;
-  height: 120px;
-  margin: 5px;
-  margin-bottom: 5px;
-  margin-left: 5px;
-  margin-top: 5px;
-  width: 190px;
+.img_thumb{
+  height: 200px;
+  width: 200px;
+  float:right;
 }
+
+.cont{
+  width: 500px;
+  height: 400px;
+  border: solid 2px #cccccc;
+  margin-top:10px;

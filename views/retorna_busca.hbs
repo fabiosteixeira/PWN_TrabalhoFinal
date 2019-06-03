@@ -3,10 +3,10 @@
     <br>{{paginaAtual}}
     <h2>Retorno de buscas</h2>        
         {{#each personagem}}
-            <div class='cont'>            
+            <div class="cont">            
                 <p>Nome: <b>{{this.name }}
                 <p><b>Descrição</b>: {{this.description }}</p>                             
-                <img class="img-thumbnail" src="{{this.thumbnail.path}}.{{this.thumbnail.extension}}" alt="">
+                <img class="img_thumb" src="{{this.thumbnail.path}}.{{this.thumbnail.extension}}" alt="">
                 <a href="http://localhost:3000/marvel/registro_personagem/{{this.id}}">Visualizar</a>
             </div>
         {{/each}}   
