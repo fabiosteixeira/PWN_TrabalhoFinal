@@ -5,14 +5,23 @@ body {
   background-size: cover;
 }
 
+.index-body{
+  background-image:url("/imagens/avengers_background.jpg");
+}
+
 a {
   color: #00B7FF;
 }
 
 .titulo{
   font: 30px bold, italic;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  font-family: Arial Black, sans-serif
 }
+
+.paraf{
+  font: 15px italic;
+}
+
 
 .navbar {
   border-radius: 24px;
@@ -90,10 +99,29 @@ a {
   padding: 20px;
   width: auto;
 }
+
+.perfil {
+  background: #f8fcf8;
+  float: none;
+  margin: 20px auto;
+  padding: 20px;
+  width: auto;
+}
+
 .noticia {
   background: #e5e5e5;
   padding: 5px;
-  width: 280px;
-  margin: 7px;
+  width: auto;
+  margin: 10px;
   float: left;
+}
+.imagem-galeria img {
+  border: 8px solid white;
+  box-shadow: 1px 1px 4px black;
+  height: 120px;
+  margin: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  width: 190px;
 }
