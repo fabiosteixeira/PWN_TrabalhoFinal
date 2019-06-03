@@ -90,3 +90,10 @@ a {
   padding: 20px;
   width: auto;
 }
+.noticia {
+  background: #e5e5e5;
+  padding: 5px;
+  width: 280px;
+  margin: 7px;
+  float: left;
+}
