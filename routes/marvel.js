@@ -54,7 +54,7 @@ router.get('/retorna_busca_pag/:nome/:pag', function(req, res, next) {
   var pagAnterior = 0;
  
   const baseUrl = 'http://gateway.marvel.com/v1/public/characters';
-  const query = `?limit=${limit}&nameStartsWith=${nome}&offset=${paginaAtual}`;
+  const query = `?limit=${limit}&nameStartsWith=${nome}&offset=${(paginaAtual-1)*10}`;
   const timestamp = new Date().getTime();
   const hash = crypto.createHash('md5').update(timestamp + privateKey + publicKey).digest('hex');    
   const auth = `&ts=${timestamp}&apikey=${publicKey}&hash=${hash}`;
@@ -77,23 +77,20 @@ router.get('/retorna_busca_pag/:nome/:pag', function(req, res, next) {
       var prox =0 ;//proxima pagina     
       var ant = 0; //pagina anterior   
 
-      // /caso não encontre regitros 
-      if(dadosComp.total == 0){
-        quant    = dadosComp.total; //quantidde de páginas
-      }else{
-        quant    = dadosComp.total -1; //quantidde de páginas
-      }
+      //Atualizando o total de páginas
+      quant = dadosComp == 0 ? 0 : (dadosComp.total/limit);
 
-      quant    = dadosComp.total -1; //quantidde de páginas
-      pagAtual = dadosComp.offset; //Página atual 
+      //Atualizando a página atual
+      pagAtual = ((dadosComp.offset/10) + 1); //Página atual 
+      // pagAtual = pagAtual > 0 ? pagAtual - 1 : pagAtual;
 
       if(pagAtual < quant){
-        pagAtual  = pagAtual + 1  ;
-        prox = url_base +'retorna_busca_pag/'+nome+'/'+pagAtual;
+        // pagAtual  = pagAtual + 1  ;
+        prox = url_base +'retorna_busca_pag/'+nome+'/'+(pagAtual + 1);
       }
 
-      if(pagAtual > 1){
-        ant  = pagAtual -2 ;
+      if(pagAtual >= 1){
+        ant  = pagAtual - 1;
         if(ant!=0){
           pagAnterior  = url_base +'retorna_busca_pag/'+nome+'/'+ant;
         }
