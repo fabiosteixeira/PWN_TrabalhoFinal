@@ -20,7 +20,7 @@
       <!-- Navegação -->
       <nav class=" navbar navbar-light bg-light justify-content-between">
         <a href="#" class="card link"><img src="imagens/marvel.png" alt="Marvel"></a>
-        <form action="http://localhost:3000/marvel/retorna_busca/" method="post" class="form-inline navbar-brand my-2 my-lg-0">
+        <form action="/marvel/retorna_busca/" method="post" class="form-inline navbar-brand my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Pesquise seu Héroi" name="name" aria-label="Pesquisar">
           <button class="btn btn-outline-success my-4 my-sm-0" type="submit" value="pesquisar">Pesquisar</button>
         </form>
@@ -28,7 +28,7 @@
       <div class="container">
         <h3>Nome: {{profile.displayName}}</h3>
         <h6>ID: {{profile.id}}</h6>  
-        <a href='http://localhost:3000/marvel//lista_favorios/{{profile.id}}/'>Meus hérois favoritos </a>
+        <a href='/marvel//lista_favorios/{{profile.id}}/'>Meus hérois favoritos </a>
       </div>
     </div>
 </div>

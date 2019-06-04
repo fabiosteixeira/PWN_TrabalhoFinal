@@ -8,9 +8,6 @@ var router = express.Router();
 
 const mongoose = require('mongoose')
 
-
-const url_base = "http://localhost:3000/marvel/";
-
 var Schema = mongoose.Schema;
 var userData = new Schema({
   idUsuario:String,
@@ -64,7 +61,7 @@ router.get('/busca/', function(req, res, next){
 // recebe dados do formulário e redireciona 
 router.post('/retorna_busca/', function(req, res, next) {
   var name        = req.body.name; //nome do personagem via get  
-  res.redirect('http://localhost:3000/marvel/retorna_busca_pag/'+name+'/1');   
+  res.redirect('/marvel/retorna_busca_pag/'+name+'/1');   
 });
 
 // retorna elementos 
@@ -113,13 +110,14 @@ router.get('/retorna_busca_pag/:nome/:pag', function(req, res, next) {
 
       if(pagAtual < quant){
         // pagAtual  = pagAtual + 1  ;
-        prox = url_base +'retorna_busca_pag/'+nome+'/'+(pagAtual + 1);
+        // prox = 'retorna_busca_pag/'+nome+'/'+(pagAtual + 1);
+        prox = '/marvel/retorna_busca_pag/'+nome+'/'+(pagAtual + 1);
       }
 
       if(pagAtual >= 1){
         ant  = pagAtual - 1;
         if(ant!=0){
-          pagAnterior  = url_base +'retorna_busca_pag/'+nome+'/'+ant;
+          pagAnterior  = '/marvel/retorna_busca_pag/'+nome+'/'+ant;
         }
       }      
       res.render('retorna_busca',{personagem:dados, pagAtual:paginaAtual, quantPag:quant, proxPag:prox, pagAnt: pagAnterior});             
@@ -148,7 +146,7 @@ router.get('/add_favorito/:idUsuario/:idPersonagem', function(req, res, next){
     com.save().then(() => console.log(userData.db));
   });
   
-  res.redirect('http://localhost:3000/profile'); 
+  res.redirect('/profile'); 
 });
 
 // Retorna personagens marcados como favoritos 
