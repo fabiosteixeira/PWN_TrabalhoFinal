@@ -1,36 +1,7 @@
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Página com hérois da Marvel" />
-    <meta name="keywords" content="NodeJS, bootstrap, PWN,Fábio Teixeira, Filipe Eduardo, LUiz Carlos" />
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>{{title}}</title>
-
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="head">
-      <!-- Navegação -->
-      <nav class=" navbar navbar-light bg-light justify-content-between">
-        <a href="#" class="card link"><img src="imagens/marvel.png" alt="Marvel"></a>
-        <form action="/marvel/retorna_busca/" method="post" class="form-inline navbar-brand my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Pesquise seu Héroi" name="name" aria-label="Pesquisar">
-          <button class="btn btn-outline-success my-4 my-sm-0" type="submit" value="pesquisar">Pesquisar</button>
-        </form>
-      </nav>
-      <div class="container">
+<title>{{title}}</title>
+<div class="container">
         <h3>Nome: {{profile.displayName}}</h3>
         <h6>ID: {{profile.id}}</h6>  
-        <a href='/marvel//lista_favorios/{{profile.id}}/'>Meus hérois favoritos </a>
-      </div>
-    </div>
 </div>
 
   
