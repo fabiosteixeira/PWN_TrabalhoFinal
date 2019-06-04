@@ -5,8 +5,9 @@ const passsport = require('passport')
 router.get('/', passsport.authenticate('github'));
 
 router.get('/callback',
-       passsport.authenticate('github',{failureRedirect: '/index'}),
+       passsport.authenticate('github',{failureRedirect: '/'}),
        function(req, res) {
+           console.log(req)
            res.redirect('/profile');
        }    
 );
