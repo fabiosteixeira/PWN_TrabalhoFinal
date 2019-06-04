@@ -111,7 +111,7 @@ a {
 .noticia {
   background: #e5e5e5;
   padding: 5px;
-  width: 500px;
+  width: 510px;
   margin: 10px;
   float: left;
 }
@@ -126,3 +126,4 @@ a {
   height: 400px;
   border: solid 2px #cccccc;
   margin-top:10px;
+}
