@@ -6,6 +6,7 @@
     "start": "./node_modules/.bin/nodemon --inspect=0.0.0.0:9229 ./bin/www"
   },
   "dependencies": {
+    "api-marvel": "^1.0.0",
     "connect-ensure-login": "^0.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",

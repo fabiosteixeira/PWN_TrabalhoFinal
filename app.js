@@ -10,7 +10,9 @@ var app = require('marvel-api');
 var indexRouter = require('./routes/index1');
 var authRouter = require('./routes/auth');
 var profileRouter = require('./routes/profile');
+var loginRouter = require('./routes/login');
 var marvelRouter = require('./routes/marvel');
+var logoutRouter = require('./routes/logout');
 
 var app = express();
 require('./configs/facebook.strategy');
@@ -34,7 +36,9 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/profile', profileRouter);
+app.use('/login', loginRouter);
 app.use('/marvel', marvelRouter);
+app.use('/logout', logoutRouter);
 
 
 // catch 404 and forward to error handler
