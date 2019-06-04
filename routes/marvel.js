@@ -19,7 +19,6 @@ descricao:String});
 var userData = mongoose.model('favoritos', userData)
 
 
-
 // const com = new userData({ idUsuario: 123, personagem: 123});
 //       com.save().then(() => console.log(userData.db));
 
@@ -29,7 +28,7 @@ var marvel = api.createClient({
 });
 
 /* PASSAR ID DO PERSO. */
-router.get('/registro_personagem/:id', function(req, res, next) {
+router.get('/registro_personagem/:id',  require('connect-ensure-login').ensureLoggedIn(), function(req, res, next) {
     
     var limit = 10;    
     var id  = req.params.id; //nome do personagem via get 
@@ -38,18 +37,12 @@ router.get('/registro_personagem/:id', function(req, res, next) {
       return console.error(err);
     }
     var dados = results.data[0];    
-    
+    var profile = req.user; //recebe informações do usuário logado 
     var thumb =results.data[0].thumbnail.path;    
-    var ext =results.data[0].thumbnail.extension;    
+    var ext = results.data[0].thumbnail.extension;    
     var img = thumb+"."+ext;
     
-    // ============================================================
-    // ARRUMAR UMA MANEIRA DE PEGAR ID DO USUÁRIO QUE ESTÁ LOGADO NO MOMENTO
-    // ============================================================
-    var idProfile = 28741886; 
-
-    res.render('person',{personagem:dados, img:img, idProf:idProfile, idPersonagem:id});            
-    // res.json({personagem:dados, img:img});        
+    res.render('person',{personagem:dados, img:img, idProf:profile.id, idPersonagem:id});                       
   });
 });
 
@@ -66,7 +59,7 @@ router.post('/retorna_busca/', function(req, res, next) {
 
 // retorna elementos 
 router.get('/retorna_busca_pag/:nome/:pag', function(req, res, next) {
-
+  
   var publicKey   = 'd69523b56ff3e1089329082cf2af76fb';
   var privateKey  = '18e6c041b9c7df612d32f9f7d0e96fca3b889cd4';  
   var limit       = 10;    //quantidade de elemntos da página   
