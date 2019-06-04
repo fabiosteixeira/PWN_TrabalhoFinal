@@ -1,10 +1,30 @@
 var express = require('express');
 var request = require('request');
+var profile = require('../routes/profile')
 const crypto = require('crypto');
+var api = require('marvel-api');
+
 var router = express.Router();
 
-var api = require('marvel-api');
+const mongoose = require('mongoose')
+
+
 const url_base = "http://localhost:3000/marvel/";
+
+var Schema = mongoose.Schema;
+var userData = new Schema({
+  idUsuario:String,
+  personagem:String,
+img:String,
+nome:String,
+descricao:String});
+
+var userData = mongoose.model('favoritos', userData)
+
+
+
+// const com = new userData({ idUsuario: 123, personagem: 123});
+//       com.save().then(() => console.log(userData.db));
 
 var marvel = api.createClient({
   publicKey: 'd69523b56ff3e1089329082cf2af76fb'
@@ -13,8 +33,8 @@ var marvel = api.createClient({
 
 /* PASSAR ID DO PERSO. */
 router.get('/registro_personagem/:id', function(req, res, next) {
-    var limit = 10;
-    var name = 'spider-man';
+    
+    var limit = 10;    
     var id  = req.params.id; //nome do personagem via get 
     marvel.characters.find(id,function(err, results) {
     if (err) {
@@ -25,7 +45,14 @@ router.get('/registro_personagem/:id', function(req, res, next) {
     var thumb =results.data[0].thumbnail.path;    
     var ext =results.data[0].thumbnail.extension;    
     var img = thumb+"."+ext;
-    res.render('person',{personagem:dados, img:img});        
+    
+    // ============================================================
+    // ARRUMAR UMA MANEIRA DE PEGAR ID DO USUÁRIO QUE ESTÁ LOGADO NO MOMENTO
+    // ============================================================
+    var idProfile = 28741886; 
+
+    res.render('person',{personagem:dados, img:img, idProf:idProfile, idPersonagem:id});            
+    // res.json({personagem:dados, img:img});        
   });
 });
 
@@ -103,4 +130,39 @@ router.get('/retorna_busca_pag/:nome/:pag', function(req, res, next) {
   });      
   
 });
+
+// salva héroi favorito no perfil do usuário 
+router.get('/add_favorito/:idUsuario/:idPersonagem', function(req, res, next){
+  var idUser  = req.params.idUsuario;
+  var idPerson  = req.params.idPersonagem;
+
+
+  marvel.characters.find(idPerson,function(err, results) {
+    if (err) {
+      return console.error(err);
+    }
+     var dados = results.data[0];        
+     var thumb     = results.data[0].thumbnail.path;    
+     var ext       = results.data[0].thumbnail.extension;    
+     var img       = thumb+"."+ext;
+     var desc      = results.data[0].description;    
+     var nome      = results.data[0].name;               
+     const com = new userData({ idUsuario: idUser, personagem: idPerson, descricao:desc, nome:nome, img: img});
+    com.save().then(() => console.log(userData.db));
+  });
+  
+  res.redirect('http://localhost:3000/profile'); 
+});
+
+// Retorna personagens marcados como favoritos 
+router.get('/lista_favorios/:idUsuario', function(req, res, next){
+  var idUser  = req.params.idUsuario;
+  var listaFavoritos = {};
+  var id = req.params.id;
+  var itensFavorito = userData.find({idUsuario:idUser})
+  .then(function(dados){
+    res.render('favoritos',{dados});            
+  });
+});
+
 module.exports = router;
