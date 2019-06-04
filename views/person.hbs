@@ -1,8 +1,7 @@
-<div class='col-lg-12'>
-    <p><a href="/marvel/busca/">Voltar a página inicial</a></p>
-    <p><a href="/marvel/add_favorito/{{idProf}}/{{idPersonagem}}">Add. Favoritos</a></p>
-<h2>Perfil do personagem</h2>
-<img src="{{img}}" class='img_thumb' alt="">
+<div class="col-lg-12 noticia">
+  <button type="button" value="Voltar"  onClick="history.go(-1)" class="btn btn-primary col-md-4 mb-3">Voltar</button>
+  <a class="btn btn-primary col-md-5 mb-3" href="/marvel/add_favorito/{{idProf}}/{{idPersonagem}}">Adicionar Favoritos</a>  
+  <h2>Perfil do personagem</h2>
     <p><b>Nome</b>: {{personagem.name}}</p>        
     <p><b>Descrição</b>: {{personagem.description}}</p> 
     <img class="img_thumb" src="{{img}}"  alt="">              
