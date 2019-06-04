@@ -78,7 +78,7 @@ router.get('/retorna_busca_pag/:nome/:pag', function(req, res, next) {
       var ant = 0; //pagina anterior   
 
       //Atualizando o total de páginas
-      quant = dadosComp == 0 ? 0 : (dadosComp.total/limit);
+      quant = dadosComp == 0 ? 0 : Math.ceil(dadosComp.total/limit);
 
       //Atualizando a página atual
       pagAtual = ((dadosComp.offset/10) + 1); //Página atual 
