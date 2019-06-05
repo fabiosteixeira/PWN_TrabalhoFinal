@@ -139,7 +139,7 @@ router.get('/add_favorito/:idUsuario/:idPersonagem', function(req, res, next){
     com.save().then(() => console.log(userData.db));
   });
   
-  res.redirect('/profile'); 
+  res.redirect('/favoritos'); 
 });
 
 // Retorna personagens marcados como favoritos 
@@ -157,7 +157,7 @@ router.get('/lista_favorios/:idUsuario', function(req, res, next){
   var idUsuario       = req.params.id;
   var idPersonagem    = req.params.pers;
   
-  userData.remove({idUsuario:idUsuario, personagem:idPersonagem}).then(() => res.redirect('/profile'));
+  userData.remove({idUsuario:idUsuario, personagem:idPersonagem}).then(() => res.redirect('/favoritos'));
   
 });
 
