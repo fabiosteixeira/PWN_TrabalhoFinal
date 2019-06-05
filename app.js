@@ -13,7 +13,7 @@ var profileRouter = require('./routes/profile');
 var loginRouter = require('./routes/login');
 var marvelRouter = require('./routes/marvel');
 var logoutRouter = require('./routes/logout');
-var favoritosRouter = require('./routes/favoritos');
+
 
 var app = express();
 require('./configs/facebook.strategy');
@@ -40,7 +40,7 @@ app.use('/profile', profileRouter);
 app.use('/login', loginRouter);
 app.use('/marvel', marvelRouter);
 app.use('/logout', logoutRouter);
-app.use('/favoritos', favoritosRouter);
+
 
 
 // catch 404 and forward to error handler
