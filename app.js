@@ -15,7 +15,6 @@ var marvelRouter = require('./routes/marvel');
 var logoutRouter = require('./routes/logout');
 
 var app = express();
-require('./configs/facebook.strategy');
 require('./configs/github.strategy');
 
 // view engine setup

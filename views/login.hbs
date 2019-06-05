@@ -1,1 +1,47 @@
 {{body}}
+<body class="index-body">
+    <!-- Navegação -->
+    <nav class=" navbar navbar-light bg-light justify-content-between">
+        <a href="#" class="card link"><img src="imagens/marvel.png" alt="Marvel"></a>
+        <form class="form-inline navbar-brand">
+            <!-- Button trigger modal -->
+            <button class="btn btn-danger col-md-14 mb-3" type="button" data-toggle="modal" data-target="#exampleModalCenter">ENTRE</button><br>    
+        </form>
+    </nav>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Preparado para fazer logon</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="text-center">
+              <img src="imagens/marvel.png" class="rounded" alt="Marvel">
+              <br>
+              <h3 class="titulo">
+                <span>VAMOS COMEÇAR</span>
+              </h3>
+              <br>
+              <p class="paraf">Ao clicar em ENTRE, você concorda em ter a maior experiência
+              dentro do Universo Marvel em pesquisar os seus personagens 
+              preferidos.</p>
+              <p class="paraf">Pode fica tranquilo não publicaremos nada em seu perfil.</p>
+              <br>
+              <form action="/auth/facebook">
+                <button class="btn btn-primary col-md-10 mb-4" type="submit" data-toggle="modal" data-target="#exampleModalCenter">ENTRAR COM FACEBOOK</button>
+              </form>
+            <form action="/auth/github">
+                <button class="btn btn-primary col-md-10 mb-4" type="submit" data-toggle="modal" data-target="#exampleModalCenter">ENTRAR COM GITHUB</button>
+            </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary col-md-4 mb-3" data-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div> <!--Fim Modal-->
