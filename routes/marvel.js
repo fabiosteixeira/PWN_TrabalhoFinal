@@ -139,11 +139,11 @@ router.get('/add_favorito/:idUsuario/:idPersonagem', function(req, res, next){
     com.save().then(() => console.log(userData.db));
   });
   
-  res.redirect('/favoritos'); 
+  res.redirect('/profile'); 
 });
 
 // Retorna personagens marcados como favoritos 
-router.get('/lista_favoritos/:idUsuario', function(req, res, next){
+router.get('/lista_favorios/:idUsuario', function(req, res, next){
   var idUser  = req.params.idUsuario;
   var listaFavoritos = {};
   var id = req.params.id;
@@ -157,7 +157,7 @@ router.get('/lista_favoritos/:idUsuario', function(req, res, next){
   var idUsuario       = req.params.id;
   var idPersonagem    = req.params.pers;
   
-  userData.remove({idUsuario:idUsuario, personagem:idPersonagem}).then(() => res.redirect('favoritos'));
+  userData.remove({idUsuario:idUsuario, personagem:idPersonagem}).then(() => res.redirect('/profile'));
   
 });
 
