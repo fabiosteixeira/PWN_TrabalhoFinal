@@ -157,9 +157,8 @@ router.get('/lista_favorios/:idUsuario', function(req, res, next){
   var idUsuario       = req.params.id;
   var idPersonagem    = req.params.pers;
   // res.json(idQuery);
-  // userData.remove({idUsuario:idUsuario, personagem:idPersonagem});  
+  userData.remove({idUsuario:idUsuario, personagem:idPersonagem});  
   res.redirect('/profile'); 
-  
 });
 
 module.exports = router;
