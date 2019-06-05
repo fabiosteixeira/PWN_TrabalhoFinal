@@ -10,11 +10,14 @@
             <a class="nav-link" href="/profile">Perfil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Favoritos</a>
+            <a class="nav-link" href="/marvel//lista_favorios/{{profile.id}}/">Favoritos</a>
           </li>
         </ul>
         <form action="/marvel/retorna_busca/" method="post" class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Pesquise seu Héroi" name="name" aria-label="Pesquisar">
+          <input class="form-control mr-sm-2" type="search" placeholder="Pesquise seu Héroi" name="name" aria-label="Pesquisar" required>
+          <div class="invalid-feedback">
+              Campo não pode ficar vazio.
+          </div>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
         </form>
       </div>
@@ -24,7 +27,7 @@
     <br>{{paginaAtual}}
     <h2>Retorno de buscas</h2>        
         {{#each personagem}}
-            <div>            
+            <div class="cont">            
                 <p>Nome: <b>{{this.name }}
                 <p><b>Descrição</b>: {{this.description }}</p>                             
                 <img class="img-thumbnail" src="{{this.thumbnail.path}}.{{this.thumbnail.extension}}" alt="">
