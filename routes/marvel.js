@@ -152,5 +152,15 @@ router.get('/lista_favorios/:idUsuario', function(req, res, next){
     res.render('favoritos',{dados});            
   });
 });
+// Retorna personagens marcados como favoritos 
+  router.get('/remove_favoritos/:id/:pers', function(req, res, next){
+  var idUsuario       = req.params.id;
+  var idPersonagem    = req.params.pers;
+  // res.json(idQuery);
+  // userData.remove({idUsuario:idUsuario, personagem:idPersonagem});  
+  res.redirect('/profile'); 
+  
+});
 
 module.exports = router;
+
