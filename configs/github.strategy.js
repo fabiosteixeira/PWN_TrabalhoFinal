@@ -3,7 +3,7 @@ const GitHubStrategy = require('passport-github').Strategy;
 
 passport.use(new GitHubStrategy({
     clientID: 'Iv1.8da0b13938edd642',
-    clientSecret: '8421408fbceb502c31018823a5b851bde1db18f4',
+    clientSecret: '0a9348317478c90b404d7a64af792062a078bcc',
     callbackURL: "https://pwntrabalhofinal.herokuapp.com/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
